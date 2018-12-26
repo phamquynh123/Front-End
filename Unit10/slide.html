@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Slide Show</title>
+	<!-- <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"> -->
+	<style type="text/css">
+		.container{
+			width: 60%;
+			margin: 0 auto;
+			position: relative;
+		}
+		.item{
+			position: relative;
+			display: none;
+		}
+		.item>img{
+			width: 100%;
+			height: 500px;
+		}
+		.item>p{
+			position: absolute;
+			bottom: 20px;
+			text-align: center;
+			width: 100%;
+			color:red;
+			font-size: 20px;
+		}
+		.active{
+			display: block;
+		}
+
+		#left{
+			position: absolute;
+			top: 48%;
+			left:10px;
+		}
+		#right{
+			position: absolute;
+			top: 48%;
+			right:10px;
+		}
+		.buttonn{
+			z-index: 2;
+			position: absolute;
+			bottom: 0px;
+			width:100%;
+			text-align: center;
+		}
+		.buttonn> p{
+			width: 10px; 
+			height: 10px;
+			background-color: grey;
+			border-radius: 50%;
+			display: inline-block;
+		}
+		.buttonn>.pactive{
+			background-color: red ;
+		}
+	</style>
+</head>
+<body>
+	<div class="container">
+		<div class="item active">
+			<img src="image/1.jpg" alt="Ảnh 1">
+			<p>Lorem ipsum dolor sit amet 1.</p>
+		</div>
+		<div class="item">
+			<img src="image/3.png" alt="Ảnh 2">
+			<p>Lorem ipsum dolor sit amet 2.</p>
+		</div>
+		<div class="item">
+			<img src="image/4.jpg" alt="Ảnh 4">
+			<p>Lorem ipsum dolor sit amet 3.</p>
+		</div>
+		<button id="left" onclick="left()"><i class="fas fa-caret-left"></i></button>
+		<button id="right" onclick="right()"><i class="fas fa-caret-right" ></i></button>
+		<div class="buttonn">
+			<p class="cham pactive" onclick="bt(0)"></p>
+			<p class="cham" onclick="bt(1)"></p>
+			<p class="cham" onclick="bt(2)"></p>
+		</div>
+	</div>
+
+	<script type="text/javascript">
+		var dem=0;
+		var item=document.getElementsByClassName('item');
+		var length= item.length;
+		var button= document.getElementsByClassName('cham');
+		function left(){
+			dem--;
+			for (var i = item.length-1; i >=0; i--) {
+				item[i].className='item';
+				button[i].className='cham';
+			}
+			if(dem<0){
+				dem=item.length-1;
+			}
+			item[dem].className='item active';
+			button[dem].className='cham pactive';
+		}
+
+		function right(){
+			dem++;
+			for (var i = item.length-1; i >=0; i--) {
+				item[i].className='item';
+				button[i].className='cham';
+			}
+			if(dem>item.length-1){
+				dem=0;
+			}
+			item[dem].className='item active';
+			button[dem].className='cham pactive';
+		}
+
+		function bt(n){
+			for (var i = item.length-1; i >=0; i--) {
+				item[i].className='item';
+				button[i].className='cham';
+			}
+			dem=n;
+			item[dem].className='item active';
+			button[dem].className='cham pactive';
+		}
+		// window.setTimeout(function(){ right(); }, 2000);
+		window.setInterval(function(){ right(); }, 3000);
+	</script>
+</body>
+</html>
