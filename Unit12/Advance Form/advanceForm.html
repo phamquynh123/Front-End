@@ -1,0 +1,548 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Advance form</title>
+	<link rel="stylesheet" href="advanceForm.css">
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script src="advanceForm.js"></script>
+	<!-- <script src="ahihi.js"></script> -->
+</head>
+<body>
+	<div class="container">
+		<h1>Basic Form Example</h1>
+		<button class="tab tabactive" id="tab_1">1. Account</button>
+		<button class="tab" id="tab_2">2. Profile</button>
+		<button class="tab" id="tab_3">3. Hints</button>
+		<button class="tab" id="tab_4">4. Finish</button>
+		<div class="content contentactive">
+			<p>Username * </p>
+			<input type="text" class="name"> <span class="nameerr"></span>
+			<p>Password * </p>
+			<input type="text" class="pass"> <span class="passerr"></span>
+			<p>Confirm Password * </p>
+			<input type="text" class="repass"> <span class="repasserr"></span>
+		</div>
+
+		<div class="content ">
+			<p>First name * </p>
+			<input type="text" class="fname"> <span class="fnameerr"></span>
+			<p>Last name * </p>
+			<input type="text" class="lname"> <span class="lnameerr"></span>
+			<p>Email * </p>
+			<input type="email" class="email"> <span class="emailerr"></span>
+			<p>Address * </p>
+			<input type="text" class="address"> <span class="addresserr"></span>
+			<p>Age *</p>
+			<input type="number" class="age"> <span class="ageerr"></span>
+		</div>
+		<div class="content">
+			<p>Please go away =)))</p>
+		</div>
+		<div  class="content">
+			<input type="checkbox">
+			<p>agree condition to continue</p>
+		</div>
+		<div class="confirm">
+			<button class="previous">Previous</button>
+			<button class="next buttonactive">Next</button>
+			
+		</div>
+	</div>
+</body>
+</html>
+
+
+
+<!-- <!DOCTYPE html>
+<html lang="vi">
+	<head>
+		<meta charset="utf-8">
+		<title>Bài 2 về jquery</title>
+		<script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script>
+		<style type="text/css">
+			* {
+				margin: 0;
+				padding: 0;
+			}
+
+			#head {
+				width: 100%;
+				height: 60px;
+				background: #2b3643;
+				position: fixed;
+				box-sizing: border-box;
+			}
+			#logo {
+				width: 200px;
+				height: 100%;
+				/*padding-left: 10px;
+				padding-right: 10px;*/
+				margin: 0 auto;
+			}
+				#logo img {
+					height: 90%;
+					line-height: 60px;
+					max-width: 100%;
+					/*padding-top: 5px;
+					padding-bottom: 5px;*/
+				}
+			#content {
+				width: 100%;
+				padding-top: 70px;
+				padding-left: 10%;
+				padding-right: 10%;
+				box-sizing: border-box;
+			}
+
+			.form-advanced {	
+				width: 100%;
+				/*background: gray;*/
+			}
+			#head-form-panel {
+				height: 60px;
+				width: 100%;
+				/*background: blue;*/
+				padding-right: 10px;
+				/*padding-left: 10px;*/
+				box-sizing: border-box;
+				margin-bottom: 10px;
+			}
+			#head-form-panel .tab {
+				height: 100%;
+				padding: 10px;
+				font-size: 20px;
+				font-weight: bold;
+				box-sizing: border-box;
+				display: inline-block;
+				width: 20%;
+				margin-right: 10px;
+				background: #2184be;
+				border-radius: 5px;
+				cursor: pointer;
+			}
+			#content-form-panel {
+				background: #ccc;
+				padding: 10px;
+				padding-bottom: 100px;
+				border-radius: 4px;
+			}
+			fieldset {
+				border: 0px;
+			}
+			legend {
+				width: 100%;
+				margin-bottom: 50px;
+				font-size: 30px;
+				font-weight: bold;
+				border-bottom: 1px solid #e5e5e5;
+			}
+			fieldset label, input {
+				display: block;
+				margin-top: 5px;
+				margin-bottom: 5px;
+			}
+			fieldset input {
+				padding: 5px 5px;
+				border:  1px solid #ccc;
+				border-radius: 4px;
+			}
+			.frm {
+				display: none;
+			}
+			.warning-content {
+				display: none;
+			}
+			.btn-frm-advanced {
+				margin-top: 10px;
+				width: 100%;
+				text-align: right;
+			}
+			.btn-frm-advanced button {
+				margin-left: 5px;
+				padding: 7px;
+				font-size: 18px;
+				background: #2184be;
+				border: 1px solid #2184be;
+				cursor: pointer;
+				border-radius: 4px;
+			}
+		</style>
+		<script type="text/javascript">
+			$(document).ready(function() {
+				// ẩn tất cả các tab khác ngoài tab 1
+				$('#frm-account').show();
+
+				// ..........
+				// chạy các function định nghĩa các tab
+				accountTab();
+				// ..................
+
+				// profile tab
+				function profileTab() {
+					$("#frm-account").hide();
+					$("#frm-profile").show();
+
+					var firstname = $('#firstname');
+					var lastname = $("#lastname");
+					var email 	= $("#email");
+					var address = $("#address");
+					var age = $("#age");
+
+					$("#Previous").css ({
+						background: '#2184be',
+					});
+
+					$('#profile').css({
+						background: '#2184be',
+					});
+					$('#warning').css({
+						background: 'gray',
+					});
+					$('#finish').css({
+						background: 'gray',
+					});
+					$('#account').css ({
+						background: 'gray',
+					});
+
+
+
+					age.blur(function() {
+						if(isNaN(age.val()) || age.val() == "") {
+							age.css({
+								background: '#fbe3e4',
+								border : '1px solid red',
+							});
+						}
+					});
+
+					age.focus(function() {
+						age.css({
+							background: '',
+							border : '',
+						});
+					});
+
+					firstname.focus(function() {
+						firstname.css({
+							background: '',
+							border : '',
+						});
+					});
+
+					lastname.focus(function() {
+						lastname.css({
+							background: '',
+							border : '',
+						});
+					});
+
+					email.focus(function() {
+						email.css({
+							background: '',
+							border : '',
+						});
+					});
+
+					email.blur(function() {
+						var filter = /^([a-zA-Z0-9_\.\-])+\@(([a-zA-Z0-9\-])+\.)+([a-zA-Z0-9]{2,4})+$/; 
+						if(!filter.test(email.val())) {
+							email.css({
+								background: '#fbe3e4',
+								border : '1px solid red',
+							});
+						}
+					});
+					// next action
+					$("#next").click(function() {
+						if(firstname.val() != "" && lastname.val() != "" && email.val() != "" && age.val() != "" && !isNaN(age.val())) {
+							$("#frm-profile").hide();
+							warningTab(age.val());
+						}else {
+
+							if(firstname.val() == "") {
+								firstname.css({
+									background: '#fbe3e4',
+									border : '1px solid red',
+								});
+							}
+
+							if(lastname.val() == "") {
+								lastname.css({
+									background: '#fbe3e4',
+									border : '1px solid red',
+								});
+							}
+
+							if(email.val() == "") {
+								email.css({
+									background: '#fbe3e4',
+									border : '1px solid red',
+								});
+							}
+						}
+					});
+
+
+					$("#Previous").click(function() {
+
+						$("#frm-profile").hide();
+						accountTab();
+					});
+
+				}
+				//end profile tab
+
+				// warning tab
+				function warningTab(tuoi) {
+					$("#frm-profile").hide();
+					$("#frm-warning").show();
+
+
+					$('#profile').css({
+						background: 'gray',
+					});
+					$('#warning').css({
+						background: '#2184be',
+					});
+					$('#finish').css({
+						background: 'gray',
+					});
+					$('#account').css ({
+						background: 'gray',
+					});
+
+
+
+
+					if(parseInt(tuoi) >= 18 ) {
+						$("#warning-c").hide();
+						$("#continue-c").show();
+
+						$("#next").click(function() {
+							if($("#check").is(':checked')) {
+								alert("SUMITED!")
+
+								$('#profile').css({
+									background: '#2184be',
+									opacity: '0.5',
+								});
+								$('#finish').css({
+									background: '#2184be',
+									opacity: '0.5',
+								});
+								$('#warning').css({
+									background: '#2184be',
+									opacity: '0.5',
+								});
+								$('#account').css ({
+									background: '#2184be',
+									opacity: '0.5',
+								});
+							}else {
+								finishTab();
+							}
+						});
+
+					}else {
+						$("#continue-c").hide();
+						$("#warning-c").show();
+					}
+
+					$("#Previous").click(function() {
+						$("#frm-warning").hide();
+						profileTab();
+					});
+				}
+				// .................... kết thức warning
+
+				function finishTab() {
+
+					$('#profile').css({
+						background: 'gray',
+					});
+					$('#finish').css({
+						background: 'red',
+					});
+					$('#warning').css({
+						background: 'gray',
+					});
+					$('#account').css ({
+						background: 'gray',
+					});
+
+
+					$("#Previous").click(function() {
+						$("#frm-finish").hide();
+						warningTab();
+					});
+				}
+				// account tb.............................
+				function accountTab() {
+					$("#frm-account").show();
+					$("#frm-warning").hide();
+
+					var name = $("#username");
+					var pass = $("#password");
+					var cfm_pass = $("#cfm-password");
+
+
+					$("#Previous").css({
+						background: 'gray',
+					});
+
+					$('#profile').css({
+						background: 'gray',
+					});
+					$('#warning').css({
+						background: 'gray',
+					});
+					$('#finish').css({
+						background: 'gray',
+					});
+					
+					$('#account').css({
+						background: '#2184be',
+					});
+
+					// kiểm tra nhập pass
+					$("#cfm-password").blur(function() {
+						if($("#cfm-password").val() != $("#password").val()) {
+							$("#cfm-password").css({
+								background : '##fbe3e4',
+								border : '1px solid red',
+							});
+						}
+					});
+
+					$("#cfm-password").focus(function() {
+						$("#cfm-password").css({
+							background: '',
+							border : '',
+						});
+					});
+
+					$("password").blur(function() {
+						if($("#cfm-password").val() != $("#password").val()) {
+							$("#cfm-password").css({
+								background : '#fbe3e4',
+								border : '1px solid red',
+							});
+						}
+					});
+
+					pass.focus(function() {
+						pass.css({
+							background: '',
+							border : '',
+						});
+					});
+					// kết thúc kiểm tra nhập pass
+
+					$('#username').focus(function() {
+						$('#username').css({
+							background: '',
+							border : '',
+						});
+					});
+
+
+
+					// lắng nghe nút next
+					$('#next').click(function() {
+						var name = $("#username").val();
+						if(name != "" && pass.val() == cfm_pass.val() && cfm_pass.val() != "" && pass.val() != "") {
+							$("#frm-account").hide();
+							profileTab();
+						}else{
+							$('#username').css({
+								background: '#fbe3e4',
+								border : '1px solid red',
+							});
+
+							pass.css({
+								background: '#fbe3e4',
+								border : '1px solid red',
+							});
+
+							cfm_pass.css({
+								background: '#fbe3e4',
+								border : '1px solid red',
+							});
+						}
+					});
+				}
+			});
+		</script>
+	</head>
+	<body>
+		<header id="head">
+			<div id="logo">
+				<img src="https://admin.zent.edu.vn/img/logo.png">
+			</div>
+		</header>
+
+		<div id="content">
+			<div class="form-advanced">
+				<div id="head-form-panel">
+					<div id="account" class="tab">1. Account</div>
+					<div id="profile" class="tab">2. Profile</div>
+					<div id="warning" class="tab">3. Warning</div>
+					<div id="finish" class="tab">4. Finish</div>
+				</div>
+
+				<div id="content-form-panel">
+					<fieldset id="frm-account" class="frm">
+						<legend >Account information</legend>
+						<label for="username">User name *</label>
+						<input type="text" id="username">
+
+						<label for="password">Password *</label>
+						<input type="password" id="password">
+
+						<label for="cfm-password">Xác nhận password *</label>
+						<input type="password" id="cfm-password">
+						<p>(*) Mandatory</p>
+					</fieldset>
+
+					<fieldset id="frm-profile" class="frm">
+						<legend >Profile Information</legend>
+						<label for="firstname">First name *</label>
+						<input type="text" id="firstname">
+
+						<label for="lastname">Last name *</label>
+						<input type="text" id="lastname">
+
+						<label for="email">Email *</label>
+						<input type="text" id="email">
+
+						<label for="address">Address</label>
+						<input type="text" id="address">
+
+						<label for="age">Age *</label>
+						<input type="text" id="age">
+
+						<p>(*) Mandatory</p>
+					</fieldset>
+
+					<fieldset id="frm-warning" class="frm">
+						<div id="warning-c" class="warning-content">
+							<legend> You are to young </legend>
+							<p>Please go away ;-)</p>
+						</div>
+
+						<div id="continue-c" class="warning-content">
+							<legend> Terms and Conditions</legend>
+							<input type="checkbox" id="check">  I agree with the Terms and Conditions.
+						</div>
+					</fieldset>
+				</div>
+				<div class="btn-frm-advanced">
+					<button id="Previous">Previous</button>
+					<button id="next">Next</button>
+				</div>
+			</div>
+		</div>
+	</body>
+</html> -->
