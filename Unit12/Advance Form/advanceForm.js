@@ -11,7 +11,6 @@ $(function(){
 				next2();
 				break;
 			case 3:
-				next3();
 				break;
 			case 4:
 				next4();
@@ -19,7 +18,19 @@ $(function(){
 		}
 	});
 	$(".previous").on("click", function(){
-		previous();
+		switch(dem) {
+			case 1:
+				break;
+			case 2:
+				previous();
+				break;
+			case 3:
+				previous();
+				break;
+			case 4:
+				previous4();
+				break;
+		}
 	})
 	function next1(){
 		var check=0;
@@ -118,25 +129,34 @@ $(function(){
 				tabactive.attr("class", "tab");
 				tabactive.next().next().attr("class", "tab tabactive");
 			}
-			alert(dem);
-			check++;
 		}
 
 	}
-	function next3(){
-		
-	}
 	function next4(){
-		alert('check');
+		if($(".checkcheck").is(":checked")){
+			alert('Success');
+		}
+		
 	}
 	function previous(){
 		var now= $(".contentactive");
 
 		now.attr("class","content");
-		// now.Siblings(dem).
-		// $(".content")[dem].attr("class","content contentactive");
-
 		now.prev().attr("class","content contentactive");
+		var tabactive= $(".tabactive");
+		tabactive.attr("class", "tab");
+		tabactive.prev().attr("class", "tab tabactive");
 		dem--;
 	}
+	function previous4(){
+		var now= $(".contentactive");
+		now.attr("class","content");
+		now.prev().prev().attr("class","content contentactive");
+		var tabactive= $(".tabactive");
+		tabactive.attr("class", "tab");
+		tabactive.prev().prev().attr("class", "tab tabactive");
+		dem=2;
+	}
+	
+
 })
