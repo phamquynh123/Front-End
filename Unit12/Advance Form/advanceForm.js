@@ -2,6 +2,7 @@ $(function(){
 	var dem=1;
 
 	$(".next").on("click", function(){
+		alert(dem);
 		switch(dem) {
 			case 1:
 			
@@ -102,33 +103,41 @@ $(function(){
 		}
 
 		var age=$(".age").val();
+
 		if(age==""){
 			$(".ageerr").html("Yêu cầu nhập Tuổi");
+			check++;
 		}else{
 			$(".ageerr").html("");
-			if(age<18) {
-				dem=3;
-			
-				var now= $(".contentactive");
-				now.attr("class","content");
-				now.next().attr("class","content contentactive");
-				var tabactive= $(".tabactive");
-				tabactive.attr("class", "tab");
+			check++;
+			// alert(age);
+			if(check==5){
+				if(age<18) {
 
-				tabactive.next().attr("class", "tab tabactive");
-				// $(".next").css("opacity","0.5");
-				// $(".previous").css("background","#3e3ed8");	
-			}
-			else {
-				dem=4;
+					dem=3;
+				alert(dem);
+					var now= $(".contentactive");
+					now.attr("class","content");
+					now.next().attr("class","content contentactive");
+					var tabactive= $(".tabactive");
+					tabactive.attr("class", "tab");
 
-				var now= $(".contentactive");
-				now.attr("class","content");
-				now.next().next().attr("class","content contentactive");
-				var tabactive= $(".tabactive");
-				tabactive.attr("class", "tab");
-				tabactive.next().next().attr("class", "tab tabactive");
+					tabactive.next().attr("class", "tab tabactive");
+					// $(".next").css("opacity","0.5");
+					// $(".previous").css("background","#3e3ed8");	
+				}
+				else {
+					dem=4;
+
+					var now= $(".contentactive");
+					now.attr("class","content");
+					now.next().next().attr("class","content contentactive");
+					var tabactive= $(".tabactive");
+					tabactive.attr("class", "tab");
+					tabactive.next().next().attr("class", "tab tabactive");
+				}
 			}
+		
 		}
 
 	}
