@@ -2,56 +2,39 @@
 <html lang="en">
 <head>
 	<meta charset="UTF-8">
-	<title>Loading</title>
+	<title>Collapse</title>
 	<link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
 	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
 	<script type="text/javascript" src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 </head>
 <body>
-	<div class="spinner-grow text-primary" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-secondary" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-success" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-danger" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-warning" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-info" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-succ" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<div class="spinner-grow text-dark" role="status">
-		<span class="sr-only">Loading...</span>
-	</div>
-	<!-- on loadding -->
-	<div class="clearfix">
-		<div class="spinner-border float-right" role="status">
-			<span class="sr-only">Loading...</span>
+
+	<h1>collapse</h1>
+
+	<p>
+		<a class="btn btn-primary" data-toggle="collapse" href="#multiCollapseExample1" role="button" aria-expanded="false" aria-controls="multiCollapseExample1">Toggle first element</a>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target="#multiCollapseExample2" aria-expanded="false" aria-controls="multiCollapseExample2">Toggle second element</button>
+		<button class="btn btn-primary" type="button" data-toggle="collapse" data-target=".multi-collapse" aria-expanded="false" aria-controls="multiCollapseExample1 multiCollapseExample2">Toggle both elements</button>
+	</p>
+	<div class="row">
+		<div class="col">
+			<div class="collapse multi-collapse" id="multiCollapseExample1">
+				<div class="card card-body">
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+				</div>
+			</div>
+		</div>
+		<div class="col">
+			<div class="collapse multi-collapse" id="multiCollapseExample2">
+				<div class="card card-body">
+					Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident.
+				</div>
+			</div>
 		</div>
 	</div>
-	<!-- loadding button -->
-	<button class="btn btn-primary" type="button" disabled>
-		<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-		<span class="sr-only">Loading...</span>
-	</button>
-	<button class="btn btn-primary" type="button" disabled>
-		<span class="spinner-grow spinner-grow-sm" role="status" aria-hidden="true"></span>
-		Loading...
-	</button>
 
 
-	
-<!--  -->
-<div class="accordion" id="accordionExample">
+	<div class="accordion" id="accordionExample">
 	<div class="card">
 		<div class="card-header" id="headingOne">
 			<h2 class="mb-0">
@@ -61,7 +44,7 @@
 			</h2>
 		</div>
 
-		<div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordionExample">
+		<div id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">
 			<div class="card-body">
 				Anim pariatur cliche reprehenderit, enim eiusmod high life accusamus terry richardson ad squid. 3 wolf moon officia aute, non cupidatat skateboard dolor brunch. Food truck quinoa nesciunt laborum eiusmod. Brunch 3 wolf moon tempor, sunt aliqua put a bird on it squid single-origin coffee nulla assumenda shoreditch et. Nihil anim keffiyeh helvetica, craft beer labore wes anderson cred nesciunt sapiente ea proident. Ad vegan excepteur butcher vice lomo. Leggings occaecat craft beer farm-to-table, raw denim aesthetic synth nesciunt you probably haven't heard of them accusamus labore sustainable VHS.
 			</div>

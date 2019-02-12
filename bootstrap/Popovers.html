@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Popovers</title>
+	<link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
+	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+	<script src="../js/popper.min.js"></script>
+	<script type="text/javascript" src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+</head>
+<body>
+	<button type="button" class="btn btn-lg btn-danger" data-toggle="popover" title="Popover title" data-content="And here's some amazing content. It's very engaging. Right?">Click to toggle popover</button>
+	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="top" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		Popover on top
+	</button>
+
+	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="right" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		Popover on right
+	</button>
+
+	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="bottom" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		Popover on bottom
+	</button>
+
+	<button type="button" class="btn btn-secondary" data-container="body" data-toggle="popover" data-placement="left" data-content="Vivamus sagittis lacus vel augue laoreet rutrum faucibus.">
+		Popover on left
+	</button>
+	<div class="progress">
+		<div class="progress-bar progress-bar-striped progress-bar-animated" role="progressbar" aria-valuenow="75" aria-valuemin="0" aria-valuemax="100" style="width: 75%"></div>
+	</div>
+
+	<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.5/umd/popper.js"></script>
+	<script>
+		$(function () {
+			$('[data-toggle="popover"]').popover()
+		})
+		$('.popover-dismiss').popover({
+			trigger: 'focus'
+		})
+	</script>
+</body>
+</html>

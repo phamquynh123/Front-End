@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Sweet alert</title>
+	<style>
+		div{
+			text-align: center;
+			padding: 10px;
+			display: inline-block;
+			/*background-color: #f9f990;*/
+		}
+		.error{
+			background-color: #eb4b4b;
+		}
+	</style>
+</head>
+<body>
+	<div class="fire">fire</div>
+	<div class="error ">ERROR</div>
+	<div> link : <a href="https://sweetalert2.github.io/" target="_blank">Click me</a></div>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/sweetalert/2.1.2/sweetalert.min.js"></script> -->
+	<script src="https://cdn.jsdelivr.net/npm/sweetalert2@8"></script>
+	<script>
+		$(document).ready(function(){
+			$(".fire").on("click", function(){  
+				Swal.fire('Any fool can use a computer')
+			})
+			$(".error").click(function(){
+				Swal.fire({
+				  type: 'error',
+				  title: 'Oops...',
+				  text: 'Something went wrong!',
+				})
+			});
+		})
+	</script>
+</body>
+</html>

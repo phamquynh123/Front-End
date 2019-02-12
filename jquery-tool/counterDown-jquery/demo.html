@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+</head>
+<body>
+	<!-- lock -->
+	<div class="countdown">
+		Limited Time Only!
+		<span id="clock"></span>
+	</div>
+	<!-- lock1 -->
+	<span id="clock1"></span>
+	<!-- lock 2 -->
+	<div id="clock2"></div>
+
+	<p>Continue after finish</p>
+	<div id="clock3"></div>
+	  
+	  <p>mệt quá link đây : http://hilios.github.io/jQuery.countdown/examples</p>
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="js/jquery.countdown.min.js"></script>
+	<script type="text/javascript">
+		$('#clock').countdown('2020/10/10 12:34:56')
+			.on('update.countdown', function(event) {
+				var format = '%H:%M:%S';
+				if(event.offset.totalDays > 0) {
+					format = '%-d day%!d ' + format;
+				}
+				if(event.offset.weeks > 0) {
+					format = '%-w week%!w ' + format;
+				}
+				$(this).html(event.strftime(format));
+			})
+			.on('finish.countdown', function(event) {
+			$(this).html('This offer has expired!')
+			.parent().addClass('disabled');
+
+		});
+			// lock 1
+		$('#clock1').countdown('2020/10/10', function(event) {
+		  	$(this).html(event.strftime('%D days %H:%M:%S'));
+		});
+
+		// lock2
+		$('#clock').countdown('2020/10/10', function(event) {
+		  	var $this = $(this).html(event.strftime(''
+		    + '<span>%w</span> weeks '
+		    + '<span>%d</span> days '
+		    + '<span>%H</span> hr '
+		    + '<span>%M</span> min '
+		    + '<span>%S</span> sec'));
+		});
+
+		// lock 3
+		var fiveSeconds = new Date().getTime() + 5000;
+		$('#clock3').countdown(fiveSeconds, {elapse: true})
+			.on('update.countdown', function(event) {
+			var $this = $(this);
+			if (event.elapsed) {
+				$this.html(event.strftime('After end: <span>%H:%M:%S</span>'));
+			} else {
+				$this.html(event.strftime('To end: <span>%H:%M:%S</span>'));
+			}
+		});
+	</script>
+</body>
+</html>
