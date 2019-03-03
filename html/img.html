@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+	@keyframes sliderBg{
+		from{background-position:0 0;}
+		to{background-position:100% 0;}
+	}
+	.img2 {
+		position: relative;
+		background-image: url(../image/pro-bg.png);
+		height: 300px;
+		width: 100%;
+		animation: sliderBg 40s linear infinite;
+		animation-name: sliderBg;
+		animation-duration: 40s;
+		animation-timing-function: linear;
+		animation-delay: 0s;
+		animation-iteration-count: infinite;
+		animation-direction: normal;
+		animation-fill-mode: none;
+		animation-play-state: running;
+	}
+	
+	
+	.backToTop {
+	background-image: url(../images/arrowPageUp.png);
+	background-size: 100% 100%;
+	cursor: pointer;
+	display: none;
+	height: 40px;
+	padding: 0;
+	position: fixed;
+	right: 20px;
+	width: 40px;
+	z-index: 9999;
+	bottom: 55px; 
+	opacity: 0.6;
+	transition: background 3s,color .3s;
+	-webkit-transition: background 3s,color .3s;
+	-moz-transition: background 3s,color .3s;
+}
+	body{
+		height: 3000px;
+	}
+</style>
+</head>
+<body>
+	<div class="img2"></div>
+	
+	<a class="backToTop" href="javascript:void(0);" title="Top" style="display: none;"></a>
+	<script src="../js/jquery-3.3.1.min.js"></script>
+	<script>
+		if($(".backToTop").length > 0){
+		$(window).scroll(function () {
+			var e = $(window).scrollTop();
+			if (e > 100) {
+				$(".backToTop").show()
+			} else {
+				$(".backToTop").hide()
+			}
+		});
+		$(".backToTop").click(function () {
+			$('body,html').animate({
+				scrollTop: 0
+			})
+		})
+	}	
+	</script>
+</body>
+</html>

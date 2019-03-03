@@ -4,42 +4,79 @@
 	<meta charset="UTF-8">
 	<title>Scrollspy</title>
 	<link rel="stylesheet" href="../bootstrap-4.2.1-dist/css/bootstrap.min.css">
-	<script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+  <style>
 
-	<script type="text/javascript" src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
+  .primary-btn{
+    display: inline-block;
+   /* background: -webkit-linear-gradient(to right, #3fcaff 0%, #a4ffb0 51%, #3fcaff 100%);
+    background: -moz-linear-gradient(to right, #3fcaff 0%, #a4ffb0 51%, #3fcaff 100%);
+    background: -ms-linear-gradient(to right, #3fcaff 0%, #a4ffb0 51%, #3fcaff 100%);
+    background: -o-linear-gradient(to right, #3fcaff 0%, #a4ffb0 51%, #3fcaff 100%);*/
+    background: linear-gradient(to right, #3fcaff 0%, #a4ffb0 41%, #3fcaff 100% );
+    background-size: 200% auto;
+    padding: 0px 35px;
+    color: #222222;
+    letter-spacing: 1px;
+    font-family: "Roboto", sans-serif;
+    font-size: 12px;
+    font-weight: 500;
+    line-height: 50px;
+    border-radius: 5px;
+    outline: none !important;
+    box-shadow: 0px 10px 30px rgba(163, 255, 177, 0.2);
+    text-align: center;
+    cursor: pointer;
+    -webkit-transition: all 0.4s ease 0s;
+    -moz-transition: all 0.4s ease 0s;
+    -o-transition: all 0.4s ease 0s;
+    transition: all 0.4s ease 0s;
+    text-transform: uppercase;
+  }
+    .primary-btn:hover {
+      background-position: right center;
+      /*background: linear-gradient(to right,#3fcaff 100% , #a4ffb0 41% ,#3fcaff 100%);*/
+      color: #22195e; }
+    }
+  </style>
+
 </head>
 <body>
 	<nav id="navbar-example2" class="navbar navbar-light bg-light">
-  <a class="navbar-brand" href="#">Navbar</a>
-  <ul class="nav nav-pills">
-    <li class="nav-item">
-      <a class="nav-link" href="#fat">@fat</a>
-    </li>
-    <li class="nav-item">
-      <a class="nav-link" href="#mdo">@mdo</a>
-    </li>
-    <li class="nav-item dropdown">
-      <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
-      <div class="dropdown-menu">
-        <a class="dropdown-item" href="#one">one</a>
-        <a class="dropdown-item" href="#two">two</a>
-        <div role="separator" class="dropdown-divider"></div>
-        <a class="dropdown-item" href="#three">three</a>
-      </div>
-    </li>
-  </ul>
-</nav>
-<div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
-  <h4 id="fat">@fat</h4>
-  <p>...</p>
-  <h4 id="mdo">@mdo</h4>
-  <p>...</p>
-  <h4 id="one">one</h4>
-  <p>...</p>
-  <h4 id="two">two</h4>
-  <p>...</p>
-  <h4 id="three">three</h4>
-  <p>...</p>
-</div>
+    <a class="navbar-brand" href="#">Navbar</a>
+    <ul class="nav nav-pills">
+      <li class="nav-item">
+        <a class="nav-link" href="#fat">@fat</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#mdo">@mdo</a>
+      </li>
+      <li class="nav-item dropdown">
+        <a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Dropdown</a>
+        <div class="dropdown-menu">
+          <a class="dropdown-item" href="#one">one</a>
+          <a class="dropdown-item" href="#two">two</a>
+          <div role="separator" class="dropdown-divider"></div>
+          <a class="dropdown-item" href="#three">three</a>
+        </div>
+      </li>
+    </ul>
+  </nav>
+  <div data-spy="scroll" data-target="#navbar-example2" data-offset="0">
+    <h4 id="fat">@fat</h4>
+    <p>...</p>
+    <h4 id="mdo">@mdo</h4>
+    <p>...</p>
+    <h4 id="one">one</h4>
+    <p>...</p>
+    <h4 id="two">two</h4>
+    <p>...</p>
+    <h4 id="three">three</h4>
+    <p>...</p>
+  </div>
+  <input type="text" style="width: 30%; padding: 10px; border-radius: 15px; background-color: yellow; outline: none">
+  <button class="primary-btn" >yellow Strawberry</button>
+  <script type="text/javascript" src="../js/jquery-3.3.1.min.js"></script>
+
+  <script type="text/javascript" src="../bootstrap-4.2.1-dist/js/bootstrap.min.js"></script>
 </body>
 </html>

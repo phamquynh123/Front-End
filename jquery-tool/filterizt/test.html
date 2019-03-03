@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Filterizr</title>
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css">
+	<link rel="stylesheet" href="test.css">
+</head>
+<body>
+	<div class="container">
+		<div class="row">
+			<ul class="simplefilter">
+				Simple filter controls:
+				<li class="fltr-controls active" data-filter="all">All</li>
+				<li class="fltr-controls" data-filter="1">Cityscape</li>
+				<li class="fltr-controls" data-filter="2">Landscape</li>
+				<li class="fltr-controls" data-filter="3">Industrial</li>
+				<li class="fltr-controls" data-filter="4">Daylight</li>
+				<li class="fltr-controls" data-filter="5">Nightscape</li>
+			</ul>
+		</div>
+		<div class="row push-down">
+			<div class="filtr-container">
+				<div class="row">
+					<div class="col-xs-6 col-sm-4 col-md-8 filtr-item" data-category="1, 5" data-sort="Busy streets">
+						<img src="img/city_1.jpg" alt="">
+					</div>
+					<div class="col-xs-6 col-sm-4 col-md-4 filtr-item" data-category="2, 5" data-sort="Luminous night">
+						<img class="img-responsive" src="img/nature_2.jpg" alt="sample image">
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+
+
+	<script
+	src="https://code.jquery.com/jquery-3.3.1.min.js"
+	integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+	crossorigin="anonymous"></script>
+
+	<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.10.2/jquery.min.js"></script>
+	<script src="http://cdnjs.cloudflare.com/ajax/libs/waypoints/2.0.3/waypoints.min.js"></script>
+	<!-- <script type="text/javascript" src="../dist/jquery.filterizr-with-jquery.min.js"></script> -->
+	<script type="text/javascript" src="dist/jquery.filterizr.min.js"></script>
+	<script src="controls.js"></script>
+	<script>
+		$(function() {
+			var f = $('.filtr-container').filterizr({ controlsSelector: '.fltr-controls' });
+			$('.color-container-1').filterizr({ controlsSelector: '.color-controls-1' });
+			$('.color-container-2').filterizr({ controlsSelector: '.color-controls-2', layout: 'packed' });
+			$('.color-container-3').filterizr({ controlsSelector: '.color-controls-3', layout: 'sameHeight' });
+			$('.color-container-4').filterizr({ controlsSelector: '.color-controls-4', layout: 'packed' });
+			$('.color-container-5').filterizr({ controlsSelector: '.color-controls-5', layout: 'horizontal' });
+			$('.color-container-6').filterizr({ controlsSelector: '.color-controls-6', layout: 'vertical' });
+			window.filterizr = f;
+		});
+	</script>  
+</body>
+</html>
